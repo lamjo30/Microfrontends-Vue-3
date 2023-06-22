@@ -2,9 +2,8 @@ import { createApp } from "vue";
 import { createStore } from "vuex";
 
 import "./index.scss";
-
 import App from "./App.vue";
-
+import router from "./router";
 createApp(App).mount("#app");
 const store = createStore({
   state: {
@@ -18,4 +17,8 @@ const store = createStore({
   },
 });
 
-createApp(App).use(store).mount("#app");
+
+// Make sure to _use_ the router instance to make the
+// whole app router-aware.
+
+createApp(App).use(store).use(router).mount("#app");
